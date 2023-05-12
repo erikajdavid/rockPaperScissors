@@ -34,39 +34,43 @@ scissors.addEventListener('click', youPickedScissors);
     };
 
 //create a function for when the user picks rock
-    function youPickedRock(){
+    function youPickedRock() {
         let computerMoveResult = computerMove();
         let userMove = 'rock';
         let results = `You picked ${userMove}. The computer picked ${computerMoveResult}.`;
-            if(userMove === 'rock' && computerMoveResult === 'rock') {
-                score.ties++;
-                alert (`${results} You tie!`);
-            } else if (userMove === 'rock' && computerMoveResult == 'paper') {
-                alert (`${results} You lose!`);
-                score.losses++;
-            } else if (userMove === 'rock' && computerMoveResult === 'scissors') {
-                alert (`${results} You win!`);
-                score.wins++;
+            if (userMove === 'rock') {
+                if (computerMoveResult === 'rock') {
+                    score.ties++;
+                    alert (`${results} You tie!`);
+                } else if (computerMoveResult === 'paper') {
+                    score.losses++; 
+                    alert (`${results} You lose!`);
+                } else if (computerMoveResult === 'scissors') {
+                    score.wins++;
+                    alert (`${results} You win!`);
+                }
             }
-        updateScore();
-};
+            updateScore();
+    };
 
 //create a function for when the user picks paper
     function youPickedPaper(){
         let computerMoveResult = computerMove();
         let userMove = 'paper';
         let results = `You picked ${userMove}. The computer picked ${computerMoveResult}.`;
-            if (userMove === 'paper' && computerMoveResult === 'rock') {
-                score.wins++;
-                alert (`${results} You win!`);
-            } else if (userMove === 'paper' && computerMoveResult === 'paper') {
-                score.ties++;
-                alert (`${results} You tie!`);
-            } else if (userMove == 'paper' && computerMoveResult === 'scissors') {
-                score.losses++;
-                alert (`${results} You lose!`);
+            if (userMove === 'paper') {
+                if (computerMoveResult === 'rock') {
+                    score.wins++;
+                    alert (`${results} You win!`);
+                } else if (computerMoveResult === 'paper') {
+                    score.ties++; 
+                    alert (`${results} You tie!`);
+                } else if (computerMoveResult === 'scissors') {
+                    score.losses++;
+                    alert (`${results} You lose!`);
+                }
             }
-        updateScore();
+            updateScore();
     };
 
 //create a function for the when the user picks scissors
@@ -74,20 +78,22 @@ scissors.addEventListener('click', youPickedScissors);
         let computerMoveResult = computerMove();
         let userMove = 'scissors';
         let results = `You picked ${userMove}. The computer picked ${computerMoveResult}.`;
-            if (userMove === 'scissors' && computerMoveResult === 'rock') {
-                score.losses++;
-                alert (`${results} You lose!`);
-            } else if (userMove === 'scissors' && computerMoveResult === 'paper') {
-                score.wins++;
-                alert (`${results} You win!`);
-            } else if (userMove === 'scissors' && computerMoveResult === 'scissors') {
-                score.ties++;
-                alert (`${results} You tie!`);
-            };
-        updateScore();
+            if (userMove === 'scissors') {
+                if (computerMoveResult === 'rock') {
+                    score.losses++;
+                    alert (`${results} You lose!`);
+                } else if (computerMoveResult === 'paper') {
+                    score.wins++; 
+                    alert (`${results} You win!`);
+                } else if (computerMoveResult === 'scissors') {
+                    score.ties++;
+                    alert (`${results} You tie!`);
+                }
+            }
+            updateScore();
      };
 
-     //create object to store the score
+//create object to store the score
 //create an object because the properties and values are related to each other. you could use variables, but this is easier. 
 let score = {
     wins: 0,
