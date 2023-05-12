@@ -76,3 +76,10 @@ scissors.addEventListener('click', youPickedScissors);
      };
 
 //logging the results on the page 
+
+//create an h2
+
+const displayResults = document.createElement('h2');
+displayResults.textContent = `These are the results`;
+document.querySelector('.results').appendChild(displayResults);
+
