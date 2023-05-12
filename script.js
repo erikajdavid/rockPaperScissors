@@ -24,27 +24,29 @@ scissors.addEventListener('click', youPickedScissors);
 //create a randomnizer function that selects a random move when the user selects rock 
     function computerMove() {
         let randomNum = (Math.random());
-        if (randomNum <= 1/3) {
-            return `rock`; //if there is no return statement, it will return undefined
-        } else if(randomNum > 1/3 && randomNum <= 2/3) { 
-            return `paper`; //if there is no return statement, it will return undefined
-        } else if(randomNum > 2/3 && randomNum < 1) {
-            return 'scissors';
-        } 
-    }
+            if (randomNum <= 1/3) {
+                return `rock`; //if there is no return statement, it will return undefined
+            } else if(randomNum > 1/3 && randomNum <= 2/3) { 
+                return `paper`; //if there is no return statement, it will return undefined
+            } else if(randomNum > 2/3 && randomNum < 1) {
+                return 'scissors';
+            }
+    };
 
 //create a function for when the user picks rock
     function youPickedRock(){
         let computerMoveResult = computerMove();
         let userMove = 'rock';
             if(userMove === 'rock' && computerMoveResult === 'rock') {
-                    alert (`You tie!`);
-                } else if (userMove === 'rock' && computerMoveResult == 'paper') {
-                    alert (`You lose!`);
-                } else if (userMove === 'rock' && computerMoveResult === 'scissors') {
-                    alert (`You win!`);
-                }
-                computerMove();
+                alert (`You tie!`);
+            } else if (userMove === 'rock' && computerMoveResult == 'paper') {
+                alert (`You lose!`);
+            } else if (userMove === 'rock' && computerMoveResult === 'scissors') {
+                alert (`You win!`);
+            }
+        computerMove();
+        
+        alert (`You picked ${userMove}. The computer picked ${computerMove()}`);
     };
 
 //create a function for when the user picks paper
@@ -58,7 +60,9 @@ scissors.addEventListener('click', youPickedScissors);
             } else if (userMove == 'paper' && computerMoveResult === 'scissors') {
                 alert (`You lose!`);
             }
-            computerMove();
+        computerMove();
+
+        alert (`You picked ${userMove}. The computer picked ${computerMove()}`);
     };
 
 //create a function for the when the user picks scissors
@@ -73,5 +77,7 @@ scissors.addEventListener('click', youPickedScissors);
                 alert (`You tie!`);
             };
         computerMove();
+
+        alert (`You picked ${userMove}. The computer picked ${computerMove()}`);
      };
 
