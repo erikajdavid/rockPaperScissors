@@ -37,41 +37,42 @@ scissors.addEventListener('click', youPickedScissors);
     function youPickedRock(){
         let computerMoveResult = computerMove();
         let userMove = 'rock';
+        let results = `You picked ${userMove}. The computer picked ${computerMoveResult}.`;
             if(userMove === 'rock' && computerMoveResult === 'rock') {
-                alert (`You tie!`);
+                alert (`${results} You tie!`);
             } else if (userMove === 'rock' && computerMoveResult == 'paper') {
-                alert (`You lose!`);
+                alert (`${results} You lose!`);
             } else if (userMove === 'rock' && computerMoveResult === 'scissors') {
-                alert (`You win!`);
+                alert (`${results} You win!`);
             }
-        computerMove();
 };
 
 //create a function for when the user picks paper
     function youPickedPaper(){
         let computerMoveResult = computerMove();
         let userMove = 'paper';
+        let results = `You picked ${userMove}. The computer picked ${computerMoveResult}.`;
             if (userMove === 'paper' && computerMoveResult === 'rock') {
-                alert (`You win!`);
+                alert (`${results} You win!`);
             } else if (userMove === 'paper' && computerMoveResult === 'paper') {
-                alert (`You tie!`);
+                alert (`${results} You tie!`);
             } else if (userMove == 'paper' && computerMoveResult === 'scissors') {
-                alert (`You lose!`);
+                alert (`${results} You lose!`);
             }
-        computerMove();
     };
 
 //create a function for the when the user picks scissors
      function youPickedScissors() {
         let computerMoveResult = computerMove();
         let userMove = 'scissors';
+        let results = `You picked ${userMove}. The computer picked ${computerMoveResult}.`;
             if (userMove === 'scissors' && computerMoveResult === 'rock') {
-                alert (`You lose!`);
+                alert (`${results} You lose!`);
             } else if (userMove === 'scissors' && computerMoveResult === 'paper') {
-                alert (`You win!`);
+                alert (`${results} You win!`);
             } else if (userMove === 'scissor' && computerMoveResult === 'scissors') {
-                alert (`You tie!`);
+                alert (`${results} You tie!`);
             };
-        computerMove();
      };
 
+//logging the results on the page 
