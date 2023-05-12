@@ -20,7 +20,7 @@ paper.addEventListener('click', youPickedPaper); // this is the short form
 const scissors = document.querySelector(`.scissors`)
 //add event listener
 scissors.addEventListener('click', youPickedScissors);
-    
+
 //create a randomnizer function that selects a random move when the user selects rock 
     function computerMove() {
         let randomNum = (Math.random());
@@ -39,12 +39,16 @@ scissors.addEventListener('click', youPickedScissors);
         let userMove = 'rock';
         let results = `You picked ${userMove}. The computer picked ${computerMoveResult}.`;
             if(userMove === 'rock' && computerMoveResult === 'rock') {
+                score.ties++;
                 alert (`${results} You tie!`);
             } else if (userMove === 'rock' && computerMoveResult == 'paper') {
                 alert (`${results} You lose!`);
+                score.losses++;
             } else if (userMove === 'rock' && computerMoveResult === 'scissors') {
                 alert (`${results} You win!`);
+                score.wins++;
             }
+        updateScore();
 };
 
 //create a function for when the user picks paper
@@ -53,12 +57,16 @@ scissors.addEventListener('click', youPickedScissors);
         let userMove = 'paper';
         let results = `You picked ${userMove}. The computer picked ${computerMoveResult}.`;
             if (userMove === 'paper' && computerMoveResult === 'rock') {
+                score.wins++;
                 alert (`${results} You win!`);
             } else if (userMove === 'paper' && computerMoveResult === 'paper') {
+                score.ties++;
                 alert (`${results} You tie!`);
             } else if (userMove == 'paper' && computerMoveResult === 'scissors') {
+                score.losses++;
                 alert (`${results} You lose!`);
             }
+        updateScore();
     };
 
 //create a function for the when the user picks scissors
@@ -67,19 +75,59 @@ scissors.addEventListener('click', youPickedScissors);
         let userMove = 'scissors';
         let results = `You picked ${userMove}. The computer picked ${computerMoveResult}.`;
             if (userMove === 'scissors' && computerMoveResult === 'rock') {
+                score.losses++;
                 alert (`${results} You lose!`);
             } else if (userMove === 'scissors' && computerMoveResult === 'paper') {
+                score.wins++;
                 alert (`${results} You win!`);
-            } else if (userMove === 'scissor' && computerMoveResult === 'scissors') {
+            } else if (userMove === 'scissors' && computerMoveResult === 'scissors') {
+                score.ties++;
                 alert (`${results} You tie!`);
             };
+        updateScore();
      };
 
+     //create object to store the score
+//create an object because the properties and values are related to each other. you could use variables, but this is easier. 
+let score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+}
+
 //logging the results on the page 
-
-//create an h2
-
+//create an h2 and insert into the HTML
 const displayResults = document.createElement('h2');
-displayResults.textContent = `These are the results`;
+displayResults.textContent = `Score: 0 wins, 0 losses, 0 ties`;
 document.querySelector('.results').appendChild(displayResults);
+
+//create a function to update the score
+function updateScore() {
+    displayResults.textContent = `Score: ${score.wins} wins, ${score.losses} losses, ${score.ties} ties`;
+};
+
+// target the reset button and save in a variable
+const reset = document.querySelector('.resetBtn');
+
+// add event listener
+reset.addEventListener('click', resetScore);
+
+// create a function to reset the score
+function resetScore() {
+    // ask the user if they want to reset the score
+    const confirmed = confirm('Are you sure you want to reset the score to 0?');
+  
+    // if the user confirmed, reset the score
+    if (confirmed) {
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        updateScore();
+    }
+};
+
+
+
+
+
 
