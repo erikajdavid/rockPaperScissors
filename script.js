@@ -1,16 +1,27 @@
 //rock paper scissors game 
 
 //the user clicks on rock
-//target rock and save in a variable
+//target rock element and save in a variable
 const rock = document.querySelector(`.rock`)
 //add event listener
-rock.addEventListener('click', function(){
+rock.addEventListener('click', function(){  // this is the longer form
     youPickedRock();
 });
+
+//the user clicks on paper
+//target paper element and save in a variable
+const paper = document.querySelector(`.paper`)
+//add event listener
+paper.addEventListener('click', youPickedPaper); // this is the short form
+
+
+//the user clicks on scissors
+//target scissors element and save in a variable
+const scissors = document.querySelector(`.scissors`)
+//add event listener
+scissors.addEventListener('click', youPickedScissors);
     
 //create a randomnizer function that selects a random move when the user selects rock 
-
-
     function computerMove() {
         let randomNum = (Math.random());
         if (randomNum <= 1/3) {
@@ -40,26 +51,27 @@ rock.addEventListener('click', function(){
     function youPickedPaper(){
         let computerMoveResult = computerMove();
         let userMove = 'paper';
-            if (usesMove === 'paper' && computerMoveResult === 'rock') {
-                alert (`You w`)
+            if (userMove === 'paper' && computerMoveResult === 'rock') {
+                alert (`You win!`);
+            } else if (userMove === 'paper' && computerMoveResult === 'paper') {
+                alert (`You tie!`);
+            } else if (userMove == 'paper' && computerMoveResult === 'scissors') {
+                alert (`You lose!`);
             }
-    }
+            computerMove();
+    };
 
-    /*if(userMove === paper && computerMove === rock) {
-        console.log(`You win!`);
-    } else if (userMove === paper && computerMove == paper) {
-        console.log(`You tie`);
-    } else if (userMove === paper && computerMove === scissors) {
-        console.log(`You lose`);
-    }
+//create a function for the when the user picks scissors
+     function youPickedScissors() {
+        let computerMoveResult = computerMove();
+        let userMove = 'scissors';
+            if (userMove === 'scissors' && computerMoveResult === 'rock') {
+                alert (`You lose!`);
+            } else if (userMove === 'scissors' && computerMoveResult === 'paper') {
+                alert (`You win!`);
+            } else if (userMove === 'scissor' && computerMoveResult === 'scissors') {
+                alert (`You tie!`);
+            };
+        computerMove();
+     };
 
-    if(userMove === scissors && computerMove === rock) {
-        console.log(`You lose!`);
-    } else if (userMove === scissors && computerMove == paper) {
-        console.log(`You win`);
-    } else if (userMove === scissors && computerMove === scissors) {
-        console.log(`You tie`);
-    }
-//user move and computer move are compared
-//winner is determined
-*/
