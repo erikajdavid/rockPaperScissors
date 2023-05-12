@@ -45,9 +45,7 @@ scissors.addEventListener('click', youPickedScissors);
                 alert (`You win!`);
             }
         computerMove();
-        
-        alert (`You picked ${userMove}. The computer picked ${computerMove()}`);
-    };
+};
 
 //create a function for when the user picks paper
     function youPickedPaper(){
@@ -61,8 +59,6 @@ scissors.addEventListener('click', youPickedScissors);
                 alert (`You lose!`);
             }
         computerMove();
-
-        alert (`You picked ${userMove}. The computer picked ${computerMove()}`);
     };
 
 //create a function for the when the user picks scissors
@@ -77,7 +73,5 @@ scissors.addEventListener('click', youPickedScissors);
                 alert (`You tie!`);
             };
         computerMove();
-
-        alert (`You picked ${userMove}. The computer picked ${computerMove()}`);
      };
 
