@@ -22,16 +22,13 @@ const scissors = document.querySelector(`.scissors`)
 scissors.addEventListener('click', youPickedScissors);
 
 //create a randomnizer function that selects a random move when the user selects rock 
-    function computerMove() {
-        let randomNum = (Math.random());
-            if (randomNum <= 1/3) {
-                return `rock`; //if there is no return statement, it will return undefined
-            } else if(randomNum > 1/3 && randomNum <= 2/3) { 
-                return `paper`; //if there is no return statement, it will return undefined
-            } else if(randomNum > 2/3 && randomNum < 1) {
-                return 'scissors';
-            }
-    };
+//use an array
+//this function generates a random number between 0 and 2, and then returns the corresponding move (rock, paper, or scissors) from the moves array.
+   function computerMove() {
+        const moves = ['rock', 'paper', 'scissors'];
+        const randomNum = Math.floor(Math.random() * moves.length);
+        return moves[randomNum];
+    }
 
 //create a function for when the user picks rock
     function youPickedRock() {
@@ -131,6 +128,28 @@ function resetScore() {
         updateScore();
     }
 };
+
+
+
+
+
+
+
+
+
+//DISCARDED CODE
+//This function works perfectly, but the one used above is more DRY. 
+ /*function computerMove() {
+        let randomNum = (Math.random());
+            if (randomNum <= 1/3) {
+                return `rock`; //if there is no return statement, it will return undefined
+            } else if(randomNum > 1/3 && randomNum <= 2/3) { 
+                return `paper`; //if there is no return statement, it will return undefined
+            } else if(randomNum > 2/3 && randomNum < 1) {
+                return 'scissors';
+            }
+    };
+    */
 
 
 
