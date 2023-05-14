@@ -27,8 +27,8 @@ scissors.addEventListener('click', youPickedScissors);
    function computerMove() {
         const moves = ['rock', 'paper', 'scissors'];
         const randomNum = Math.floor(Math.random() * moves.length);
-        return moves[randomNum];
-    }
+        return moves[randomNum]; // you need this return statement or it will come back undefined
+    };
 
 //create a function for when the user picks rock
     function youPickedRock() {
