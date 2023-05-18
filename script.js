@@ -21,7 +21,7 @@ const scissors = document.querySelector(`.scissors`)
 //add event listener
 scissors.addEventListener('click', youPickedScissors);
 
-//create a randomnizer function that selects a random move when the user selects rock 
+//create a randomnizer function that selects a random move when the user selects rock, paper or scissors
 //use an array
 //this function generates a random number between 0 and 2, and then returns the corresponding move (rock, paper, or scissors) from the moves array.
    function computerMove() {
